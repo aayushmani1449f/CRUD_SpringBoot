@@ -23,7 +23,6 @@ public class UserController {
     //http://localhost:8080/readUser/1005
 
     @GetMapping("/readUser/{userId}")
-    @RequestMapping("/readUser/{userId}")
     public User readUserController(@PathVariable(name = "userId") Long Id){
         return userService.readUser(Id);
     }

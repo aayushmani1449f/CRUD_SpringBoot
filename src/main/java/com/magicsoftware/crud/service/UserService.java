@@ -28,15 +28,7 @@ public class UserService {
      * @return
      */
     public String registerUser(User user){
-        user.setUsername(user.getUsername()); // user.setUsername(aayush mani);
-        user.setUserId(user.getUserId());
-        user.setEmail(user.getEmail());
-        user.setAge(user.getAge());
-        user.setGender(user.getGender());
-
         userRepository.save(user);
-
-
         return "Registered Successfully!";
     }
 

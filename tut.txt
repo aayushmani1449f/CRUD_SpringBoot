@@ -1,0 +1,84 @@
+=========================================================
+  Spring Boot CRUD App - Beginner's Testing Tutorial
+=========================================================
+
+Welcome to your Spring Boot Application! Here is a structured 
+guide on how to test all the endpoints of your application.
+
+Since this is a REST API, you can test GET requests directly 
+in your web browser. For POST, PUT, PATCH, and DELETE requests, 
+you will need an API client tool like Postman or Insomnia.
+
+---------------------------------------------------------
+ 1. Accessing the Database (H2 Console)
+---------------------------------------------------------
+The H2 Database is an in-memory database that lets you see 
+your tables and data through a web browser.
+
+• URL: http://localhost:8080/h2-console
+• Driver Class: org.h2.Driver
+• JDBC URL: jdbc:h2:mem:testdb
+• Username: sa
+• Password: (leave it completely blank)
+
+Steps:
+1. Open your web browser and go to the URL above.
+2. Ensure the "JDBC URL" exactly matches: jdbc:h2:mem:testdb
+3. Click "Connect" to view your database tables (like 'hari').
+
+---------------------------------------------------------
+ 2. User API Endpoints
+---------------------------------------------------------
+
+Endpoint 1: Create a New User (POST)
+------------------------------------
+Use this endpoint to add a new user to the database.
+• URL: http://localhost:8080/register
+• Method: POST
+• JSON Body Example (in Postman):
+{
+    "userId": 1001,
+    "username": "aayush mani",
+    "email": "aayush@gmail.com",
+    "age": 22,
+    "gender": "male"
+}
+
+
+Endpoint 2: Read a User (GET)
+-----------------------------
+Use this endpoint to fetch an existing user by their ID. You can 
+test this directly in your web browser!
+• URL: http://localhost:8080/readUser/1001
+• Method: GET
+
+
+Endpoint 3: Update a User Completely (PUT)
+------------------------------------------
+Use this endpoint to replace an existing user's details.
+• URL: http://localhost:8080/updateUser/1001
+• Method: PUT
+• JSON Body Example:
+{
+    "username": "aayush updated",
+    "email": "updated@gmail.com",
+    "age": 23,
+    "gender": "male"
+}
+
+
+Endpoint 4: Update Only Username (PATCH)
+----------------------------------------
+Use this endpoint to update just the username of a user.
+• URL: http://localhost:8080/updateUser/1001
+• Method: PATCH
+• Body Example (Raw Text / String):
+Aayush Supermani
+
+
+Endpoint 5: Delete a User (DELETE)
+----------------------------------
+Use this endpoint to remove a user from the database.
+• URL: http://localhost:8080/deleteUser/1001
+• Method: DELETE
+
